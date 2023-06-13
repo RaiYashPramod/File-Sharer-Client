@@ -3,7 +3,6 @@ import { useDropzone } from "react-dropzone";
 
 const DropZone: React.FC<{setFile:Dispatch<any>}> = ({setFile}) => {
   const onDrop = useCallback((acceptedFiles: File[]) => {
-    console.log(acceptedFiles);
     setFile(acceptedFiles[0])
   }, []);
 
@@ -17,10 +16,13 @@ const DropZone: React.FC<{setFile:Dispatch<any>}> = ({setFile}) => {
         <input {...getInputProps()} />
         <div
           className={
-            "p-2 flex flex-col justify-center items-center border-dashed border-teal-950 border-2 h-full border-space-x-1 border-spacing-y-1 rounded-lg " +
+            "p-2 flex flex-col justify-center items-center border-dashed border-teal-950 h-full border-2 rounded-lg " +
             (isDragAccept === true ? "border-green-800 rounded-lg" : "") +
             (isDragReject === true ? "border-red-800" : "")
           }
+          style={{
+            borderWidth: isDragAccept || isDragReject ? "4px" : "2px",
+          }}
         >
           <img src="src\assets\folder.png" alt="folder" className="w-16 h-16" />
           {isDragReject ? (
