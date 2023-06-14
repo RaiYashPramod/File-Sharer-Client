@@ -3,18 +3,20 @@ import DropZone from "../components/DropZone";
 import UploadedFiles from "../components/UploadedFiles";
 import axios from "axios";
 import DownloadFile from "../components/DownloadFile";
+// const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
-axios.defaults.baseURL = "http://localhost:8080/";
+
+axios.defaults.baseURL = 'http://localhost:8080/';
 
 const Index = () => {
-  const [file, setFile] = useState(null) as any;
-  const [downloadPageLink, setDownloadPageLink] = useState(null);
+  const [file, setFile] = useState<File | null>(null);
+  const [downloadPageLink, setDownloadPageLink] = useState<string | null>(null);
   const [uploadState, setUploadState] = useState<
     "Uploading" | "Upload Failed" | "Uploaded" | "Upload"
   >("Upload");
 
   const handleUpload = async () => {
-    if (uploadState === "Uploading") return;
+    if (uploadState === "Uploading" || !file) return;
     setUploadState("Uploading");
     const formData = new FormData();
     formData.append("myfile", file);
@@ -30,8 +32,7 @@ const Index = () => {
 
       setDownloadPageLink(data.downloadPageLink);
       setUploadState("Uploaded");
-    } catch (error: any) {
-      console.log(error.response.data);
+    } catch (error) {
       setUploadState("Upload Failed");
     }
   };
@@ -63,9 +64,9 @@ const Index = () => {
           <>
             <UploadedFiles
               file={{
-                format: file.type.split("/")[1],
-                name: file.name,
-                sizeInBytes: file.size,
+                format: file?.type?.split("/")[1] || "",
+                name: file?.name || "",
+                sizeInBytes: file?.size || 0,
               }}
             />
             {!downloadPageLink && file && (

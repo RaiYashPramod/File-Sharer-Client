@@ -1,4 +1,9 @@
-const DownloadFile = ({ downloadPageLink }:any) => {
+
+interface DownloadFileProps {
+  downloadPageLink: string;
+}
+
+const DownloadFile: React.FC<DownloadFileProps> = ({ downloadPageLink }) => {
   return (
     <div className="p-1">
       <h1 className="my-2 text-lg font-mono">Share the Link below</h1>
