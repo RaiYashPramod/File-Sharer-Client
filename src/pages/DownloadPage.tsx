@@ -3,12 +3,14 @@ import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import UploadedFiles from "../components/UploadedFiles";
 import fileDownloadImage from "../assets/filedownload.png";
+import fileDownload from "js-file-download";
 
 const fetchDownloadData = async (id: any) => {
   const { data } = await axios(`http://localhost:8080/api/files/${id}`);
   const file = data;
   console.log(file);
   return file;
+
 };
 
 const DownloadPage = () => {
@@ -16,6 +18,16 @@ const DownloadPage = () => {
   const { data, isLoading, error } = useQuery(["download", id], () =>
     fetchDownloadData(id)
   );
+
+  const handleDownload = async () => {
+    const { data: fileData }  = await axios.get(
+      `http://localhost:8080/api/files/${id}/download`,{
+        responseType: 'blob'
+      }
+    );
+
+    fileDownload(fileData, data.name);
+  };
 
   if (isLoading) {
     return (
@@ -74,7 +86,7 @@ const DownloadPage = () => {
             sizeInBytes: data.sizeInBytes,
           }}
         />
-        <button>Download</button>
+        <button className="button" onClick={handleDownload}>Download</button>
       </div>
     </div>
   );

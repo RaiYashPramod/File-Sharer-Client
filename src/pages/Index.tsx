@@ -73,7 +73,7 @@ const Index = () => {
             {!downloadPageLink && file && (
               <button
                 onClick={handleUpload}
-                className="w-44 bg-teal-800 text-yellow-50 focus:outline-none p-2 my-5 rounded-md items-center"
+                className="button"
               >
                 {uploadState}
               </button>
@@ -83,7 +83,7 @@ const Index = () => {
                 <DownloadFile downloadPageLink={downloadPageLink} />
                 <button
                   onClick={handleUploadNewFile}
-                  className="w-44 bg-teal-800 text-yellow-50 focus:outline-none p-2 my-5 rounded-md items-center"
+                  className="button"
                 >
                   Upload New File
                 </button>

@@ -3,3 +3,6 @@
 @tailwind utilities;
 
 
+.button {
+  @apply w-44 bg-teal-800 text-yellow-50 focus:outline-none p-2 my-5 rounded-md items-center;
+}
