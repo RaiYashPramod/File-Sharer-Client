@@ -8,7 +8,6 @@ axios.defaults.baseURL = "http://localhost:8080/";
 
 const Index = () => {
   const [file, setFile] = useState(null) as any;
-  const [id, setId] = useState(null);
   const [downloadPageLink, setDownloadPageLink] = useState(null);
   const [uploadState, setUploadState] = useState<
     "Uploading" | "Upload Failed" | "Uploaded" | "Upload"
@@ -29,7 +28,6 @@ const Index = () => {
         },
       });
 
-      setId(data.id);
       setDownloadPageLink(data.downloadPageLink);
       setUploadState("Uploaded");
     } catch (error: any) {
