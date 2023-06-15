@@ -5,7 +5,7 @@ import axios from "axios";
 import DownloadFile from "../components/DownloadFile";
 
 
-axios.defaults.baseURL = 'http://localhost:8080/';
+axios.defaults.baseURL = 'https://tiny-puce-woodpecker-cuff.cyclic.app/';
 
 const Index = () => {
   const [file, setFile] = useState<File | null>(null);

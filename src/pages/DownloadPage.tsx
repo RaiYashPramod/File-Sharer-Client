@@ -7,7 +7,7 @@ import fileDownload from "js-file-download";
 
 
 const fetchDownloadData = async (id: string) => {
-  const { data } = await axios(`http://localhost:8080/api/files/${id}`);
+  const { data } = await axios(`https://tiny-puce-woodpecker-cuff.cyclic.app/api/files/${id}`);
   // console.log(apiUrl);
   const file = data;
   console.log(file);
@@ -23,7 +23,7 @@ const DownloadPage = () => {
 
   const handleDownload = async () => {
     const { data: fileData }  = await axios.get(
-      `http://localhost:8080/api/files/${id}/download`,{
+      `https://tiny-puce-woodpecker-cuff.cyclic.app/api/files/${id}/download`,{
         responseType: 'blob'
       }
     );
