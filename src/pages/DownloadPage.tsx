@@ -4,12 +4,11 @@ import { useParams } from "react-router-dom";
 import UploadedFiles from "../components/UploadedFiles";
 import fileDownloadImage from "../assets/filedownload.png";
 import fileDownload from "js-file-download";
-const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
 
 const fetchDownloadData = async (id: string) => {
-  const { data } = await axios(`${apiUrl}/api/files/${id}`);
-  console.log(apiUrl);
+  const { data } = await axios(`http://localhost:8080/api/files/${id}`);
+  // console.log(apiUrl);
   const file = data;
   console.log(file);
   return file;
@@ -24,7 +23,7 @@ const DownloadPage = () => {
 
   const handleDownload = async () => {
     const { data: fileData }  = await axios.get(
-      `${apiUrl}/api/files/${id}/download`,{
+      `http://localhost:8080/api/files/${id}/download`,{
         responseType: 'blob'
       }
     );

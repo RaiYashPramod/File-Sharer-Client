@@ -3,7 +3,6 @@ import DropZone from "../components/DropZone";
 import UploadedFiles from "../components/UploadedFiles";
 import axios from "axios";
 import DownloadFile from "../components/DownloadFile";
-// const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
 
 axios.defaults.baseURL = 'http://localhost:8080/';
