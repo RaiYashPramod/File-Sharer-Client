@@ -10,7 +10,7 @@ const DownloadFile: React.FC<DownloadFileProps> = ({ downloadPageLink }) => {
       <div className="flex space-x-3">
         <a className="break-all">{downloadPageLink}</a>
         <img
-          src="dist\assets\copy.png"
+          src="\assets\copy.png"
           alt=""
           className="w-8 h-8 object-contain cursor-pointer"
           onClick={()=>navigator.clipboard.writeText(downloadPageLink)}
