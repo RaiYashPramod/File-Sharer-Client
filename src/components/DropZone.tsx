@@ -24,7 +24,7 @@ const DropZone: React.FC<{setFile:Dispatch<SetStateAction<File | null>>}> = ({se
             borderWidth: isDragAccept || isDragReject ? "4px" : "2px",
           }}
         >
-          <img src="src\assets\folder.png" alt="folder" className="w-16 h-16" />
+          <img src="dist\assets\folder.png" alt="folder" className="w-16 h-16" />
           {isDragReject ? (
             <p className="font-mono text-lg">
               "Sorry! This File Format is Not supported"

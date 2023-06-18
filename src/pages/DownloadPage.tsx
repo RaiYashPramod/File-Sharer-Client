@@ -2,7 +2,7 @@ import axios from "axios";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import UploadedFiles from "../components/UploadedFiles";
-import fileDownloadImage from "../assets/filedownload.png";
+import fileDownloadImage from "dist/assets/filedownload.png";
 import fileDownload from "js-file-download";
 
 
